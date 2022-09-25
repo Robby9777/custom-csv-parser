@@ -1,18 +1,17 @@
+#defining the class and object
 class Person:
     id = []
     name = []
     age = []
     weight = []
-
-    def __init__(self, id, name, age, weight):
-        self.id.append(id)
-        self.name.append(name)
-        self.age.append(age)
-        self.weight.append(weight)
-        
+    def __init__(self, line):
+        self.id.append(int(line[0]))
+        self.name.append(line[1])
+        self.age.append(int(line[2]))
+        self.weight.append(int(line[3])) 
 people = Person
 
-data_sheet = open('Python\Data.csv', 'r')
+data_sheet = open('Data.csv', 'r')
 
 #storing the raw information into lists
 i = 0
@@ -21,7 +20,7 @@ for line in data_sheet:
         i += 1
         continue
     line = line.split(",")
-    people(int(line[0]), line[1], int(line[2]), int(line[3]))
+    people(line)
 data_sheet.close()
 
 #computing minimum, maximum, and average age
