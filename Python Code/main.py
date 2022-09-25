@@ -22,6 +22,7 @@ for line in data_sheet:
         continue
     line = line.split(",")
     people(int(line[0]), line[1], int(line[2]), int(line[3]))
+data_sheet.close()
 
 #computing minimum, maximum, and average age
 maximum_age = max(people.age)
