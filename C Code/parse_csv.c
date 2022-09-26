@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include "mystructs.h"
-#ifndef parsecsv
-#define parsecsv
-people personal_data[100];
+
+extern people personal[100];
 
 int parse_csv(char *buffer)
 {
@@ -11,17 +9,18 @@ int parse_csv(char *buffer)
     int i;
     /* Parsing the buffer string */
     token = strtok(buffer, ",");
-    sscanf(token, "%hd", &i); i--;
-    personal_data[i].id = i+1;
+    sscanf(token, "%d", &i); i--;
+    personal[i].id = i+1;
     /* i refers to the array index, which is offset -1 to ID numbers */
     token = strtok(NULL, ",");
-    strncpy(personal_data[i].name, token, sizeof(personal_data[i].name));
+    strncpy(personal[i].name, token, sizeof(personal[i].name));
 
     token = strtok(NULL, ",");
-    sscanf(token, "%hd", &personal_data[i].age);
+    sscanf(token, "%d", &personal[i].age);
 
     token = strtok(NULL, ",");
-    sscanf(token, "%hd", &personal_data[i].weight);
+    sscanf(token, "%d", &personal[i].weight);
+
+    printf("ID: %-3d Name: %-20s Age: %-3d Weight: %-3d\n", personal[i].id, personal[i].name, personal[i].age, personal[i].weight);
     return 0;
 }
-#endif
