@@ -1,12 +1,11 @@
-#ifndef mystructs
-#define mystructs
-
+#ifndef mystruct
+#define mystruct
 /* Defining a structure to store the personal data */
 typedef struct people
 { 
-    short  id;
-    short  age;
-    short  weight;
-    char name[24]; 
+    int  id;
+    char name[24];
+    int  age;
+    int  weight; 
 }people;
 #endif
