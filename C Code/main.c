@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "myheader.h"
+#include "mystructs.h"
 #include "parse_csv.c"
 #include "min_max.c"
 
